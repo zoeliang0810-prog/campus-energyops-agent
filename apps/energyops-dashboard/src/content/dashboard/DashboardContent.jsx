@@ -229,6 +229,73 @@ function NaturalLanguageConsole({ summary, scheduleRows, actualCount }) {
   </section>;
 }
 
+const architectureSteps = [
+  { number: "01", title: "自然语言请求", detail: "非技术用户直接描述目标、异常或需要比较的方案。" },
+  { number: "02", title: "意图与权限约束", detail: "AgentLoop 只允许选择五个业务白名单工具，不开放 Shell、任意文件或设备控制。" },
+  { number: "03", title: "复合调度工具", detail: "create_verified_dispatch 强制串联数据质量检查、优化器和结果校验。" },
+  { number: "04", title: "Verifier 与 Evidence", detail: "独立核验功率平衡、储能约束、目标值与证据绑定，并生成完整 Trace。" },
+  { number: "05", title: "解释与人工审批", detail: "页面展示结论、限制和下一步；当前只生成建议，不直接操作设备。" },
+];
+
+const deliveryStages = [
+  ["A", "光伏物理建模", "屋面、立面、停车场子阵列", "complete"],
+  ["B", "负荷与场景", "分表聚合、数据质量与基准场景", "complete"],
+  ["C", "Agent 运行层", "DeepSeek API、受限 AgentLoop、白名单工具", "complete"],
+  ["D", "可验证调度", "优化、Verifier、Evidence、Trace", "complete"],
+  ["F", "人机决策界面", "自然语言入口、计划展示与重调度骨架", "complete"],
+  ["E", "真实闭环", "预测、动态碳因子与计划—实际遥测", "next"],
+];
+
+function Showcase({ summaryRows, scheduleRows, summary }) {
+  const pvPeak = Math.max(...scheduleRows.map((row) => Number(row.plannedPvKw) || 0));
+  return <>
+    <section className="showcase-intro" aria-labelledby="showcase-title">
+      <div className="showcase-copy">
+        <span className="eyebrow">Portfolio prototype · Energy AI</span>
+        <h2 id="showcase-title">把优化模型变成普通人也能使用的能源决策 Agent</h2>
+        <p>这个原型把校园负荷、天气驱动光伏、储能优化和大模型交互放进同一个受控闭环。模型负责理解问题和选择工具，确定性程序负责计算、验证与留痕。</p>
+        <div className="showcase-tags" aria-label="项目能力标签">
+          <span>DeepSeek API</span><span>Guarded AgentLoop</span><span>MILP / HiGHS</span><span>Verifier</span><span>Evidence & Trace</span>
+        </div>
+      </div>
+      <aside className="showcase-boundary" aria-label="原型安全边界">
+        <span>当前原型</span><strong>建议型 Agent</strong>
+        <p>仿真数据与场景参数用于流程验证；没有设备控制工具，所有计划仍需人工审批。</p>
+      </aside>
+    </section>
+
+    <Section id="showcase-snapshot" title="演示快照"><div className="showcase-metrics">
+      <MetricCard id="showcase-cost" queryId="dispatch_summary" title="单日参考费用" value={cny(summary.totalCostCny)} comparison="经济调度目标" deltaTone="neutral" displayRows={summaryRows} sourceRows={summaryRows} />
+      <MetricCard id="showcase-peak" queryId="dispatch_summary" title="峰值购电" value={`${numberCell(summary.peakImportKw)} kW`} comparison="24 小时计划" deltaTone="neutral" displayRows={summaryRows} sourceRows={summaryRows} />
+      <MetricCard id="showcase-pv" queryId="dispatch_schedule" title="光伏计划峰值" value={`${numberCell(pvPeak)} kW`} comparison="天气驱动场景" deltaTone="positive" displayRows={scheduleRows} sourceRows={scheduleRows} />
+      <MetricCard id="showcase-verifier" queryId="dispatch_summary" title="独立校验" value={summary.verificationPassed ? "通过" : "未通过"} comparison="不可执行 · 待审批" deltaTone={summary.verificationPassed ? "positive" : "negative"} displayRows={summaryRows} sourceRows={summaryRows} />
+    </div></Section>
+
+    <Section id="showcase-architecture" title="受控 Agent 闭环">
+      <div className="architecture-flow" role="list" aria-label="从自然语言到人工审批的五步闭环">
+        {architectureSteps.map((step, index) => <React.Fragment key={step.number}>
+          <article className="architecture-step" role="listitem"><span>{step.number}</span><strong>{step.title}</strong><p>{step.detail}</p></article>
+          {index < architectureSteps.length - 1 && <span className="architecture-arrow" aria-hidden="true">→</span>}
+        </React.Fragment>)}
+      </div>
+    </Section>
+
+    <Section id="showcase-delivery" title="项目完成度" columns={2}>
+      <div className="stage-list" aria-label="项目阶段">
+        {deliveryStages.map(([stage, title, detail, state]) => <div className={`stage-item ${state}`} key={stage}>
+          <span className="stage-code">{stage}</span><div><strong>{title}</strong><p>{detail}</p></div><span className="stage-state">{state === "complete" ? "已完成" : "下一阶段"}</span>
+        </div>)}
+      </div>
+      <div className="demo-path"><span className="eyebrow">三分钟演示路径</span><h3>从问题，到计划，再到证据</h3>
+        <ol><li><span>1</span><div><strong>提出问题</strong><p>在“调度计划”页用自然语言询问计划是否可执行，观察 Agent 如何选择白名单工具。</p></div></li>
+          <li><span>2</span><div><strong>查看调度</strong><p>检查负荷、光伏、购电和储能的 24 小时协同计划，以及关键结果指标。</p></div></li>
+          <li><span>3</span><div><strong>追溯证据</strong><p>进入“证据与审计”，核对数据质量、Verifier 结果、工具调用和运行 Trace。</p></div></li></ol>
+        <div className="ownership-note"><strong>核心实现</strong><p>Agent Harness、白名单工具、优化与验证编排、Evidence/Trace、自然语言结果解释和前端展示。</p></div>
+      </div>
+    </Section>
+  </>;
+}
+
 function Overview({ summaryRows, scheduleRows }) {
   const summary = summaryRows[0];
   return <>
@@ -287,7 +354,7 @@ function Audit({ summaryRows, findings, tools, trace }) {
 
 export function DashboardContent() {
   const { activeTabId } = useDashboardTabs([
-    { id: "overview", label: "调度计划" }, { id: "monitoring", label: "偏差与重调度" }, { id: "audit", label: "证据与审计" },
+    { id: "showcase", label: "项目概览" }, { id: "overview", label: "调度计划" }, { id: "monitoring", label: "偏差与重调度" }, { id: "audit", label: "证据与审计" },
   ]);
   const { reviewedRows } = useDataApp();
   const summaryRows = reviewedRows("dispatch_summary");
@@ -297,11 +364,12 @@ export function DashboardContent() {
   const tools = reviewedRows("agent_tools", ["tool"]);
   const trace = reviewedRows("agent_trace", ["sequence"]);
   const summary = summaryRows[0] ?? {};
-  const tab = activeTabId ?? "overview";
+  const tab = activeTabId ?? "showcase";
   const subtitle = useMemo(() => summary.studyDay ? `${summary.studyDay} · ${summary.scenarioName ?? "校园光储负荷调度"}` : "已验证调度的只读决策界面", [summary.studyDay, summary.scenarioName]);
   return <article className="page energyops-page">
-    <header className="energyops-hero"><div><span className="eyebrow">校园 EnergyOps · 阶段 F</span><h1>从自然语言到可解释调度</h1><p>{subtitle}</p></div><div className="hero-mode"><span>当前模式</span><strong>只读仿真</strong></div></header>
+    <header className="energyops-hero"><div><span className="eyebrow">Campus EnergyOps Agent</span><h1>{tab === "showcase" ? "可验证的校园光储调度原型" : "从自然语言到可解释调度"}</h1><p>{tab === "showcase" ? "面向项目展示的交互原型：受控 Agent、确定性优化、独立验证与完整证据链。" : subtitle}</p></div><div className="hero-mode"><span>当前模式</span><strong>{tab === "showcase" ? "展示原型" : "只读仿真"}</strong></div></header>
     <StatusStrip summary={summary} />
+    {tab === "showcase" && <Showcase summaryRows={summaryRows} scheduleRows={scheduleRows} summary={summary} />}
     {tab === "overview" && <Overview summaryRows={summaryRows} scheduleRows={scheduleRows} />}
     {tab === "monitoring" && <Monitoring scheduleRows={scheduleRows} rules={rules} />}
     {tab === "audit" && <Audit summaryRows={summaryRows} findings={findings} tools={tools} trace={trace} />}
