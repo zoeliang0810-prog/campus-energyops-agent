@@ -1,0 +1,188 @@
+{
+  "metadata": {
+    "dataset_id": "hkust_gz_synthetic_forecast_high_evening_load",
+    "source": "synthetic_fixture",
+    "version": "synthetic-forecast-high_evening_load-v1",
+    "generated_at": "2026-02-18T18:00:00+08:00",
+    "timezone": "Asia/Shanghai",
+    "unit": "kW",
+    "verified": false,
+    "simulation_only": true,
+    "assumptions": [
+      "用于接口、优化和Harness业务流程验证",
+      "不代表校园真实预测",
+      "不用于真实设备控制"
+    ]
+  },
+  "model_version": "synthetic-perfect-forecast-v1",
+  "points": [
+    {
+      "timestamp": "2026-02-19T00:00:00+08:00",
+      "load_kw": 2411.8249999999853,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T01:00:00+08:00",
+      "load_kw": 2330.8249999999884,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T02:00:00+08:00",
+      "load_kw": 2306.191705632372,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T03:00:00+08:00",
+      "load_kw": 2282.0282943676434,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T04:00:00+08:00",
+      "load_kw": 2297.065000000033,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T05:00:00+08:00",
+      "load_kw": 2250.9849999999674,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T06:00:00+08:00",
+      "load_kw": 2462.0749999999744,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T07:00:00+08:00",
+      "load_kw": 2356.270000000061,
+      "pv_kw": 10.9071493695,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T08:00:00+08:00",
+      "load_kw": 2472.8799999999765,
+      "pv_kw": 51.786561164175005,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T09:00:00+08:00",
+      "load_kw": 2432.824999999937,
+      "pv_kw": 102.7006397487,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T10:00:00+08:00",
+      "load_kw": 2494.3250000000235,
+      "pv_kw": 134.76169728000002,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T11:00:00+08:00",
+      "load_kw": 2450.855000000081,
+      "pv_kw": 150.29318395350003,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T12:00:00+08:00",
+      "load_kw": 2542.9149999999954,
+      "pv_kw": 141.4745838,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T13:00:00+08:00",
+      "load_kw": 2518.074999999989,
+      "pv_kw": 138.89335746150002,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T14:00:00+08:00",
+      "load_kw": 2512.9600000000073,
+      "pv_kw": 115.667895972375,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T15:00:00+08:00",
+      "load_kw": 2514.719999999995,
+      "pv_kw": 91.3990886172,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T16:00:00+08:00",
+      "load_kw": 2557.5099999999557,
+      "pv_kw": 57.444200000775,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T17:00:00+08:00",
+      "load_kw": 2564.0300000001025,
+      "pv_kw": 21.780017376,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T18:00:00+08:00",
+      "load_kw": 3087.4337499999765,
+      "pv_kw": 1.030907547375,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T19:00:00+08:00",
+      "load_kw": 3292.329249999897,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T20:00:00+08:00",
+      "load_kw": 3176.685250000057,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T21:00:00+08:00",
+      "load_kw": 3061.30575000013,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T22:00:00+08:00",
+      "load_kw": 2558.300000000014,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    },
+    {
+      "timestamp": "2026-02-19T23:00:00+08:00",
+      "load_kw": 2522.839999999977,
+      "pv_kw": 0.0,
+      "load_confidence": 0.9,
+      "pv_confidence": 0.85
+    }
+  ]
+}

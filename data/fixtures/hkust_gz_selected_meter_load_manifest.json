@@ -1,0 +1,18 @@
+{
+  "dataset_id": "public_synthetic_campus_load_v1",
+  "dataset_version": "public-synthetic-load-v1",
+  "data_origin": "synthetic",
+  "site_id": "hkust_gz",
+  "source_name": "generated_public_fixture",
+  "source_timezone": "Asia/Shanghai",
+  "variable": "load_power_kw",
+  "unit": "kW",
+  "source_resolution_minutes": 60,
+  "dispatch_resolution_minutes": 60,
+  "rows": 24,
+  "start_time": "2026-02-19T00:00:00+08:00",
+  "end_time": "2026-02-20T00:00:00+08:00",
+  "selection_context": "public synthetic fixture; no real meter identifiers",
+  "coverage_scope": "synthetic_public_demo",
+  "selected_meter_keys": []
+}

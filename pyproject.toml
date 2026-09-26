@@ -1,0 +1,23 @@
+[project]
+name = "campus-energyops-agent"
+version = "0.1.0"
+description = "Verified campus energy scheduling harness"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=1.26,<3",
+  "pandas>=2.2,<3",
+  "pydantic>=2.9,<3",
+  "cvxpy>=1.6,<2",
+  "highspy>=1.8,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8,<10",
+  "nbformat>=5,<6",
+  "nbclient>=0.10,<1",
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

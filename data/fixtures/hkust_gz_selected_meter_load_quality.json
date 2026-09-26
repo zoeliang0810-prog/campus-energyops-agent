@@ -1,0 +1,21 @@
+{
+  "status": "pass",
+  "data_origin": "synthetic",
+  "selected_meter_count": 1000,
+  "observed_meter_count": 1000,
+  "missing_selected_meter_ids": [],
+  "duplicate_reading_count": 0,
+  "accepted_interval_count": 24000,
+  "rejected_interval_counts": {},
+  "incomplete_dispatch_bin_count": 0,
+  "dispatch_bin_count": 24,
+  "coverage_scope": "synthetic_public_demo",
+  "date_effective_asset_coverage_ratio": 1.0,
+  "daily_anomaly_count": 0,
+  "findings": [
+    "This public fixture is synthetic and contains no real meter identifiers or addresses."
+  ],
+  "warnings": [
+    "Do not interpret public demo results as actual campus operations or savings."
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "status": "warning",
+  "evidence_id": "pv-weather:cd867850d38f98fb",
+  "row_count": 24,
+  "missing_hour_count": 0,
+  "negative_power_count": 0,
+  "capacity_kwp": 300.0,
+  "daily_pv_energy_kwh": 1018.1392822911,
+  "peak_pv_power_kw": 150.29318395350003,
+  "findings": [
+    "天气位置已切换为港科广南沙校园附近网格，不再使用九江工业园光伏曲线。",
+    "光伏容量 300 kWp 为未核验场景假设。",
+    "光伏功率由NASA POWER天气推算，不是校园光伏实测。"
+  ],
+  "warnings": [
+    "所有结果必须保持simulation_only=true、executable=false。",
+    "真实控制或投资分析前必须补充校园光伏铭牌、阵列参数和现场发电数据。"
+  ]
+}

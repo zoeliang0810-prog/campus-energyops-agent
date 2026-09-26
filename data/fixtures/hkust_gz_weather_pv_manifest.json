@@ -1,0 +1,31 @@
+{
+  "dataset_id": "hkust_gz_nasa_power_pv_300kwp",
+  "dataset_version": "sha256:cd867850d38f98fb:pv-model-v1:300kwp",
+  "site_id": "hkust_gz",
+  "study_day": "2026-02-19",
+  "source_name": "NASA POWER Hourly API",
+  "source_url": "https://power.larc.nasa.gov/api/temporal/hourly/point?parameters=ALLSKY_SFC_SW_DWN%2CT2M%2CWS10M&community=RE&longitude=113.47908&latitude=22.89174&start=20260218&end=20260220&format=JSON&time-standard=UTC",
+  "source_sha256": "cd867850d38f98fb2f1d54c249cb7fdaa8d28a8008474a45cedb03e3343fce81",
+  "source_time_standard": "UTC",
+  "output_timezone": "Asia/Shanghai",
+  "latitude": 22.89174,
+  "longitude": 113.47908,
+  "capacity_kwp": 300.0,
+  "capacity_status": "scenario_assumption",
+  "rows": 24,
+  "resolution_minutes": 60,
+  "variable": "campus_pv_power_kw",
+  "unit": "kW",
+  "model": {
+    "irradiance_basis": "ALLSKY_SFC_SW_DWN horizontal irradiance proxy",
+    "system_loss_fraction": 0.14,
+    "noct_c": 45.0,
+    "temperature_coefficient_per_c": -0.004,
+    "power_limit_per_kwp_kw": 1.0
+  },
+  "assumptions": [
+    "光伏装机容量为场景假设，不是校园铭牌",
+    "缺少倾角、方位、遮挡、组件和逆变器参数，使用水平辐照度透明近似",
+    "NASA POWER为卫星和再分析气象数据，不是校园气象站实测"
+  ]
+}

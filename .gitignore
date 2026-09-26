@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+.ipynb_checkpoints/
+node_modules/
+dist/
+.env
+.DS_Store
+outputs/
+*.sql
+*.sqlite*
+*.pem
+*.key
+.chart-data-*/
+archive/
+
+# Private campus datasets and asset metadata are intentionally excluded.
+data/private/
+data/raw/
+data/fixtures/campus_*.csv
+data/fixtures/campus_*.json
+data/fixtures/*meter_intervals.csv
+data/fixtures/*inventory*.csv
+data/fixtures/*boundary_selection*.csv
+notebooks/*meter*.ipynb

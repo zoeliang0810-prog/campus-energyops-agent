@@ -1,0 +1,50 @@
+{
+  "dataset_id": "hkust_gz_physical_pv_stage_a_sensitivity",
+  "dataset_version": "hkust-gz-physical-pv-v1:config-76e055f17d82195a",
+  "model_version": "hkust-gz-physical-pv-v1",
+  "config_id": "hkust_gz_physical_pv_planning_v1",
+  "study_day": "2026-02-19",
+  "base_facade_case": "equal_cardinal_split",
+  "base_system_loss_fraction": 0.14,
+  "facade_orientation_cases": [
+    {
+      "case_id": "equal_cardinal_split",
+      "description": "东南西北各25%",
+      "module_counts": {
+        "east": 3624,
+        "south": 3624,
+        "west": 3624,
+        "north": 3624
+      }
+    },
+    {
+      "case_id": "south_dominant",
+      "description": "南50%、东20%、西20%、北10%",
+      "module_counts": {
+        "east": 2899,
+        "south": 7248,
+        "west": 2899,
+        "north": 1450
+      }
+    },
+    {
+      "case_id": "east_west_dominant",
+      "description": "东40%、西40%、南15%、北5%",
+      "module_counts": {
+        "east": 5798,
+        "south": 2174,
+        "west": 5798,
+        "north": 726
+      }
+    }
+  ],
+  "system_loss_fractions": [
+    0.1,
+    0.14,
+    0.18
+  ],
+  "row_count": 9,
+  "all_hard_gates_passed": true,
+  "simulation_only": true,
+  "executable": false
+}

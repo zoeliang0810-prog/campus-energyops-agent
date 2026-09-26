@@ -1,0 +1,81 @@
+{
+  "dataset_id": "hkust_gz_physical_pv_roof_parking_10654kwp",
+  "dataset_version": "hkust-gz-physical-pv-v1:config-d7b7fee1dd445af3:weather-44e9a01742722f29",
+  "model_version": "hkust-gz-physical-pv-v1",
+  "config_id": "hkust_gz_physical_pv_planning_v1",
+  "config_sha256": "d7b7fee1dd445af3a69fad2c8dfa3952092a511fd5f4065667cb1b2c4ee04201",
+  "weather_sha256": "44e9a01742722f29ac710fb8f0c1d21df5c1fad0f1c7eafa9ed9c9d6b9684e14",
+  "weather_radiation_basis": "erbs_dni_dhi_derived_from_ghi",
+  "site_id": "hkust_gz",
+  "study_day": "2026-02-19",
+  "timezone": "Asia/Shanghai",
+  "latitude": 22.89174,
+  "longitude": 113.47908,
+  "scenario_id": "roof_parking_10654kwp",
+  "scenario_name": "屋面加停车场规划场景",
+  "capacity_kwp": 10654.8,
+  "array_capacities_kwp": {
+    "roof": 10350.6,
+    "parking": 304.2
+  },
+  "module": {
+    "rated_power_wp": 650.0,
+    "width_mm": 1134.0,
+    "height_mm": 2382.0,
+    "temperature_coefficient_per_c": -0.0035,
+    "noct_c": 45.0,
+    "technology": "monocrystalline_bifacial_glass_glass",
+    "parameter_status": "planning_document_and_scenario_assumption"
+  },
+  "module_area_m2": 2.7011879999999997,
+  "module_nominal_efficiency": 0.24063486140172402,
+  "inverter": {
+    "peak_efficiency": 0.98,
+    "dc_ac_ratio": 1.0,
+    "parameter_status": "scenario_assumption"
+  },
+  "system_loss_fraction": 0.14,
+  "albedo": 0.2,
+  "bifacial_gain_fraction": 0.0,
+  "arrays": [
+    {
+      "array_id": "roof",
+      "name": "混凝土屋面",
+      "module_count": 15924,
+      "orientations": [
+        {
+          "orientation_id": "south",
+          "module_count": 15924,
+          "tilt_degrees": 10.0,
+          "azimuth_degrees": 180.0
+        }
+      ],
+      "parameter_status": "module_count_from_planning_document_orientation_assumed"
+    },
+    {
+      "array_id": "parking",
+      "name": "停车场",
+      "module_count": 468,
+      "orientations": [
+        {
+          "orientation_id": "south",
+          "module_count": 468,
+          "tilt_degrees": 10.0,
+          "azimuth_degrees": 180.0
+        }
+      ],
+      "parameter_status": "module_count_from_planning_document_orientation_assumed"
+    }
+  ],
+  "resolution_minutes": 60,
+  "rows": 24,
+  "simulation_only": true,
+  "executable": false,
+  "assumptions": [
+    "组件数量和单块650 Wp来自规划资料，规划资料年发电量不进入计算",
+    "屋面和停车场采用10度正南，立面采用东南西北等分，均待图纸核验",
+    "组件温度系数、NOCT、逆变器效率、DC/AC比、系统损失和反照率为场景假设",
+    "没有可靠地表与安装数据前双面增益固定为0",
+    "输出仅用于simulation_only容量情景分析，不代表已建成或可执行系统"
+  ]
+}

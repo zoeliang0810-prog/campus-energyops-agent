@@ -1,0 +1,831 @@
+{
+  "id": "energyops-stage-f-dashboard",
+  "surface": "dashboard",
+  "title": "港科广 EnergyOps 决策台",
+  "generatedAt": "2026-09-26T09:39:41.788584+08:00",
+  "status": "reviewed_simulation",
+  "buildStatus": "creating",
+  "queries": {
+    "dispatch_summary": {
+      "rows": [
+        {
+          "dispatchRunId": "public-demo_dispatch_de20b026",
+          "scheduleId": "schedule_f358164228e1",
+          "scenarioName": "公开版合成负荷—天气光伏—储能基准仿真",
+          "objective": "cost",
+          "studyDay": "2026-02-19",
+          "datasetVersion": "pv=sha256:cd867850d38f98fb:pv-model-v1:300kwp;load=public-synthetic-load-v1",
+          "solver": "HIGHS",
+          "solverStatus": "optimal",
+          "verificationPassed": true,
+          "releaseStatus": "pending_human_approval",
+          "simulationOnly": true,
+          "executable": false,
+          "totalCostCny": 27428.292937365826,
+          "peakImportKw": 3030.0,
+          "loadEnergyKwh": 58180.0,
+          "pvEnergyKwh": 1018.1392822911001,
+          "pvCurtailedEnergyKwh": 0.0,
+          "pvSelfConsumptionRatio": 1.0,
+          "gridImportEnergyKwh": 57194.27069000807,
+          "batteryThroughputKwh": 632.4099722991689,
+          "carbonStatus": "unavailable_missing_carbon_factor",
+          "tariffVerified": false,
+          "loadQualityStatus": "pass",
+          "pvQualityStatus": "warning"
+        }
+      ],
+      "source": {
+        "label": "已验证调度摘要",
+        "files": [
+          "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/request.json",
+          "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/schedule.json",
+          "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/verification.json",
+          "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/evidence.json"
+        ],
+        "executedAt": "2026-09-26T09:39:41.788584+08:00",
+        "caveats": [
+          "调度计划为 simulation_only，executable=false。",
+          "负荷来自末端分表聚合，不是校园总表。",
+          "300 kWp 光伏、150 kW / 400 kWh 储能和参考电价均未完成现场核验。",
+          "实际负荷、实际光伏和实际 SOC 尚未接入；缺失值保留为 null。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Local verified artifact",
+            "detail": "Read from the simulation-only EnergyOps output directory; no live database or device endpoint was queried."
+          }
+        ],
+        "metricDefinitions": [
+          {
+            "label": "已验证调度摘要",
+            "definition": "由独立 Verifier 复算的单日仿真调度汇总；费用为未核验参考电价下的模拟值。",
+            "componentIds": [
+              "plan-status",
+              "total-cost",
+              "peak-import",
+              "pv-utilization",
+              "battery-throughput"
+            ],
+            "sourceLineage": [
+              {
+                "files": [
+                  "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/request.json",
+                  "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/schedule.json",
+                  "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/verification.json",
+                  "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/evidence.json"
+                ]
+              }
+            ]
+          }
+        ],
+        "methods": []
+      }
+    },
+    "dispatch_schedule": {
+      "rows": [
+        {
+          "slot": 1,
+          "timestamp": "2026-02-19T00:00:00+08:00",
+          "hour": "00:00",
+          "plannedLoadKw": 2200.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2200.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 2,
+          "timestamp": "2026-02-19T01:00:00+08:00",
+          "hour": "01:00",
+          "plannedLoadKw": 2120.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2120.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 3,
+          "timestamp": "2026-02-19T02:00:00+08:00",
+          "hour": "02:00",
+          "plannedLoadKw": 2070.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2070.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 4,
+          "timestamp": "2026-02-19T03:00:00+08:00",
+          "hour": "03:00",
+          "plannedLoadKw": 2030.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2030.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 5,
+          "timestamp": "2026-02-19T04:00:00+08:00",
+          "hour": "04:00",
+          "plannedLoadKw": 2010.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2010.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 6,
+          "timestamp": "2026-02-19T05:00:00+08:00",
+          "hour": "05:00",
+          "plannedLoadKw": 2050.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2050.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 7,
+          "timestamp": "2026-02-19T06:00:00+08:00",
+          "hour": "06:00",
+          "plannedLoadKw": 2180.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2330.0,
+          "plannedBatteryChargeKw": 150.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 342.5,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 8,
+          "timestamp": "2026-02-19T07:00:00+08:00",
+          "hour": "07:00",
+          "plannedLoadKw": 2380.0,
+          "plannedPvKw": 10.9071493695,
+          "plannedGridImportKw": 2387.5139032620787,
+          "plannedBatteryChargeKw": 18.42105263157894,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 360.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 9,
+          "timestamp": "2026-02-19T08:00:00+08:00",
+          "hour": "08:00",
+          "plannedLoadKw": 2280.0,
+          "plannedPvKw": 51.786561164175005,
+          "plannedGridImportKw": 2228.213438835825,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 360.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 10,
+          "timestamp": "2026-02-19T09:00:00+08:00",
+          "hour": "09:00",
+          "plannedLoadKw": 2440.0,
+          "plannedPvKw": 102.7006397487,
+          "plannedGridImportKw": 2337.2993602513,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 360.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 11,
+          "timestamp": "2026-02-19T10:00:00+08:00",
+          "hour": "10:00",
+          "plannedLoadKw": 2560.0,
+          "plannedPvKw": 134.76169728000002,
+          "plannedGridImportKw": 2425.23830272,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 360.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 12,
+          "timestamp": "2026-02-19T11:00:00+08:00",
+          "hour": "11:00",
+          "plannedLoadKw": 2620.0,
+          "plannedPvKw": 150.29318395350003,
+          "plannedGridImportKw": 2319.7068160465,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 150.0,
+          "plannedBatteryEnergyKwh": 202.10526315789474,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 13,
+          "timestamp": "2026-02-19T12:00:00+08:00",
+          "hour": "12:00",
+          "plannedLoadKw": 2590.0,
+          "plannedPvKw": 141.4745838,
+          "plannedGridImportKw": 2448.5254162,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 202.10526315789474,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 14,
+          "timestamp": "2026-02-19T13:00:00+08:00",
+          "hour": "13:00",
+          "plannedLoadKw": 2510.0,
+          "plannedPvKw": 138.89335746150002,
+          "plannedGridImportKw": 2371.1066425385,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 202.10526315789474,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 15,
+          "timestamp": "2026-02-19T14:00:00+08:00",
+          "hour": "14:00",
+          "plannedLoadKw": 2440.0,
+          "plannedPvKw": 115.667895972375,
+          "plannedGridImportKw": 2324.332104027625,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 202.10526315789474,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 16,
+          "timestamp": "2026-02-19T15:00:00+08:00",
+          "hour": "15:00",
+          "plannedLoadKw": 2390.0,
+          "plannedPvKw": 91.3990886172,
+          "plannedGridImportKw": 2148.6009113828,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 150.0,
+          "plannedBatteryEnergyKwh": 44.21052631578948,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 17,
+          "timestamp": "2026-02-19T16:00:00+08:00",
+          "hour": "16:00",
+          "plannedLoadKw": 2410.0,
+          "plannedPvKw": 57.444200000775,
+          "plannedGridImportKw": 2352.555799999225,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 44.21052631578952,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 18,
+          "timestamp": "2026-02-19T17:00:00+08:00",
+          "hour": "17:00",
+          "plannedLoadKw": 2530.0,
+          "plannedPvKw": 21.780017376,
+          "plannedGridImportKw": 2508.219982624,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 44.21052631578952,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 19,
+          "timestamp": "2026-02-19T18:00:00+08:00",
+          "hour": "18:00",
+          "plannedLoadKw": 2980.0,
+          "plannedPvKw": 1.030907547375,
+          "plannedGridImportKw": 2978.969092452625,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 44.21052631578952,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 20,
+          "timestamp": "2026-02-19T19:00:00+08:00",
+          "hour": "19:00",
+          "plannedLoadKw": 3030.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 3030.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 44.21052631578952,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 21,
+          "timestamp": "2026-02-19T20:00:00+08:00",
+          "hour": "20:00",
+          "plannedLoadKw": 2890.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2903.98891966759,
+          "plannedBatteryChargeKw": 13.988919667589977,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 57.5,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 22,
+          "timestamp": "2026-02-19T21:00:00+08:00",
+          "hour": "21:00",
+          "plannedLoadKw": 2690.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2690.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 57.49999999999999,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 23,
+          "timestamp": "2026-02-19T22:00:00+08:00",
+          "hour": "22:00",
+          "plannedLoadKw": 2470.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2470.0,
+          "plannedBatteryChargeKw": 0.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 57.49999999999999,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        },
+        {
+          "slot": 24,
+          "timestamp": "2026-02-19T23:00:00+08:00",
+          "hour": "23:00",
+          "plannedLoadKw": 2310.0,
+          "plannedPvKw": 0.0,
+          "plannedGridImportKw": 2460.0,
+          "plannedBatteryChargeKw": 150.0,
+          "plannedBatteryDischargeKw": 0.0,
+          "plannedBatteryEnergyKwh": 200.0,
+          "plannedPvCurtailmentKw": 0.0,
+          "actualLoadKw": null,
+          "actualPvKw": null,
+          "actualGridImportKw": null,
+          "actualBatteryEnergyKwh": null,
+          "loadDeviationPct": null,
+          "pvDeviationPct": null,
+          "socDeviationKwh": null,
+          "monitoringStatus": "awaiting_actual_telemetry"
+        }
+      ],
+      "source": {
+        "label": "逐时计划与实际值接入状态",
+        "files": [
+          "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/schedule.json",
+          "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/verification.json"
+        ],
+        "executedAt": "2026-09-26T09:39:41.788584+08:00",
+        "caveats": [
+          "调度计划为 simulation_only，executable=false。",
+          "负荷来自末端分表聚合，不是校园总表。",
+          "300 kWp 光伏、150 kW / 400 kWh 储能和参考电价均未完成现场核验。",
+          "实际负荷、实际光伏和实际 SOC 尚未接入；缺失值保留为 null。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Local verified artifact",
+            "detail": "Read from the simulation-only EnergyOps output directory; no live database or device endpoint was queried."
+          }
+        ],
+        "metricDefinitions": [
+          {
+            "label": "逐时计划与实际值接入状态",
+            "definition": "24 个小时点的已验证计划；actual* 与 deviation* 字段在实际遥测接入前保持 null。",
+            "componentIds": [
+              "power-plan-chart",
+              "storage-plan-chart",
+              "hourly-plan",
+              "actual-coverage",
+              "deviation-status",
+              "plan-actual-chart",
+              "plan-actual-table"
+            ],
+            "sourceLineage": [
+              {
+                "files": [
+                  "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/schedule.json",
+                  "data/fixtures/public_verified_dispatch_agent/dispatches/public-demo_dispatch_de20b026/verification.json"
+                ]
+              }
+            ]
+          }
+        ],
+        "methods": [
+          {
+            "language": "python",
+            "code": "Copy verified schedule points; initialize unavailable actual and deviation fields to null rather than zero."
+          }
+        ]
+      }
+    },
+    "quality_findings": {
+      "rows": [
+        {
+          "dataset": "load",
+          "status": "pass",
+          "findingId": "load-1",
+          "finding": "This public fixture is synthetic and contains no real meter identifiers or addresses.",
+          "evidenceId": null
+        },
+        {
+          "dataset": "pv",
+          "status": "warning",
+          "findingId": "pv-1",
+          "finding": "天气位置已切换为港科广南沙校园附近网格，不再使用九江工业园光伏曲线。",
+          "evidenceId": "pv-weather:cd867850d38f98fb"
+        },
+        {
+          "dataset": "pv",
+          "status": "warning",
+          "findingId": "pv-2",
+          "finding": "光伏容量 300 kWp 为未核验场景假设。",
+          "evidenceId": "pv-weather:cd867850d38f98fb"
+        },
+        {
+          "dataset": "pv",
+          "status": "warning",
+          "findingId": "pv-3",
+          "finding": "光伏功率由NASA POWER天气推算，不是校园光伏实测。",
+          "evidenceId": "pv-weather:cd867850d38f98fb"
+        }
+      ],
+      "source": {
+        "label": "负荷与光伏数据质量结论",
+        "files": [
+          "data/fixtures/hkust_gz_selected_meter_load_quality.json",
+          "data/fixtures/hkust_gz_weather_pv_quality.json"
+        ],
+        "executedAt": "2026-09-26T09:39:41.788584+08:00",
+        "caveats": [
+          "调度计划为 simulation_only，executable=false。",
+          "负荷来自末端分表聚合，不是校园总表。",
+          "300 kWp 光伏、150 kW / 400 kWh 储能和参考电价均未完成现场核验。",
+          "实际负荷、实际光伏和实际 SOC 尚未接入；缺失值保留为 null。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Local verified artifact",
+            "detail": "Read from the simulation-only EnergyOps output directory; no live database or device endpoint was queried."
+          }
+        ],
+        "metricDefinitions": [
+          {
+            "label": "负荷与光伏数据质量结论",
+            "definition": "输入数据质量报告中的状态与原始 findings。",
+            "componentIds": [
+              "quality-findings"
+            ],
+            "sourceLineage": [
+              {
+                "files": [
+                  "data/fixtures/hkust_gz_selected_meter_load_quality.json",
+                  "data/fixtures/hkust_gz_weather_pv_quality.json"
+                ]
+              }
+            ]
+          }
+        ],
+        "methods": []
+      }
+    },
+    "monitoring_rules": {
+      "rows": [
+        {
+          "ruleId": "load-deviation",
+          "signal": "负荷功率",
+          "threshold": "±10%",
+          "persistence": "连续2个时间片",
+          "action": "建议重新计算调度，不自动执行",
+          "status": "draft_policy"
+        },
+        {
+          "ruleId": "pv-deviation",
+          "signal": "光伏功率",
+          "threshold": "±15%",
+          "persistence": "连续2个时间片",
+          "action": "建议刷新光伏预测并重新调度",
+          "status": "draft_policy"
+        },
+        {
+          "ruleId": "soc-deviation",
+          "signal": "储能电量",
+          "threshold": "±20 kWh",
+          "persistence": "任一时间片",
+          "action": "建议核对 BMS 状态并重新调度",
+          "status": "draft_policy"
+        },
+        {
+          "ruleId": "data-gap",
+          "signal": "实际数据覆盖率",
+          "threshold": "低于90%",
+          "persistence": "当前监测窗口",
+          "action": "暂停重新调度并报告数据缺失",
+          "status": "draft_policy"
+        }
+      ],
+      "source": {
+        "label": "偏差监测草案策略",
+        "assumptions": [
+          "阈值是阶段 F 骨架的可修改默认值，尚未由校园运维或设备供应商批准。"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "重新调度触发规则",
+            "definition": "仅产生重新调度建议；不会向 PLC、BMS、EMS 或储能设备发送控制指令。",
+            "componentIds": [
+              "reschedule-status",
+              "reschedule-rules",
+              "reschedule-decision"
+            ]
+          }
+        ]
+      }
+    },
+    "agent_tools": {
+      "rows": [
+        {
+          "tool": "get_available_scenarios",
+          "purpose": "查询可用场景和目标",
+          "access": "whitelist"
+        },
+        {
+          "tool": "get_data_quality_report",
+          "purpose": "检查负荷与光伏数据质量",
+          "access": "whitelist"
+        },
+        {
+          "tool": "create_verified_dispatch",
+          "purpose": "生成并独立验证仿真调度",
+          "access": "whitelist"
+        },
+        {
+          "tool": "compare_verified_plans",
+          "purpose": "重新验证后比较多个方案",
+          "access": "whitelist"
+        },
+        {
+          "tool": "explain_evidence",
+          "purpose": "读取带证据路径的结论",
+          "access": "whitelist"
+        }
+      ],
+      "source": {
+        "label": "EnergyOps Agent 白名单",
+        "files": [
+          "src/energyops/business_tools.py",
+          "src/energyops/business_query_tools.py"
+        ],
+        "metricDefinitions": [
+          {
+            "label": "可用业务工具",
+            "definition": "AgentLoop 当前注册的五个受限 EnergyOps 工具。",
+            "componentIds": [
+              "whitelist-tools"
+            ],
+            "sourceLineage": [
+              {
+                "files": [
+                  "src/energyops/business_tools.py",
+                  "src/energyops/business_query_tools.py"
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "agent_trace": {
+      "rows": [],
+      "source": {
+        "label": "阶段 D 真实多工具验收 Trace",
+        "files": [
+          "data/fixtures/public_verified_dispatch_agent/trace.jsonl"
+        ],
+        "executedAt": "2026-09-26T09:39:41.788584+08:00",
+        "caveats": [
+          "Trace 不记录 API Key、Authorization Header、完整环境变量或隐藏推理。"
+        ],
+        "evidenceFlow": [
+          {
+            "title": "Local verified artifact",
+            "detail": "Read from the simulation-only EnergyOps output directory; no live database or device endpoint was queried."
+          }
+        ],
+        "metricDefinitions": [
+          {
+            "label": "阶段 D 真实多工具验收 Trace",
+            "definition": "真实 DeepSeek API 多工具 turn 的脱敏有序事件。",
+            "componentIds": [
+              "agent-trace"
+            ],
+            "sourceLineage": [
+              {
+                "files": [
+                  "data/fixtures/public_verified_dispatch_agent/trace.jsonl"
+                ]
+              }
+            ]
+          }
+        ],
+        "methods": []
+      }
+    }
+  }
+}

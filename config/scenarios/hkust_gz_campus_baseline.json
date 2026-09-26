@@ -1,0 +1,71 @@
+{
+  "scenario_id": "hkust_gz_weather_pv_storage_baseline_v1",
+  "scenario_name": "公开版合成负荷—天气光伏—储能基准仿真",
+  "site_id": "hkust_gz",
+  "study_day": "2026-02-19",
+  "step_minutes": 60,
+  "horizon_steps": 24,
+  "objective_mode": "cost",
+  "location": {
+    "latitude": 22.89174,
+    "longitude": 113.47908,
+    "timezone": "Asia/Shanghai",
+    "address": "广州南沙公开演示坐标",
+    "coordinate_basis": "公开版天气演示坐标，不代表设备并网点"
+  },
+  "load": {
+    "dataset_id": "public_synthetic_campus_load_v1",
+    "csv": "data/fixtures/hkust_gz_selected_meter_load_2026-02-19_60min.csv",
+    "manifest": "data/fixtures/hkust_gz_selected_meter_load_manifest.json",
+    "quality": "data/fixtures/hkust_gz_selected_meter_load_quality.json"
+  },
+  "pv": {
+    "dataset_id": "hkust_gz_nasa_power_pv_300kwp",
+    "csv": "data/fixtures/hkust_gz_weather_pv_2026-02-19_60min.csv",
+    "manifest": "data/fixtures/hkust_gz_weather_pv_manifest.json",
+    "quality": "data/fixtures/hkust_gz_weather_pv_quality.json",
+    "capacity_kwp": 300.0,
+    "capacity_status": "scenario_assumption",
+    "profile_basis": "NASA POWER逐小时辐照度和气温推算；非校园光伏实测"
+  },
+  "battery": {
+    "asset_id": "hkust_gz_scenario_bess_150kw_400kwh",
+    "capacity_kwh": 400.0,
+    "initial_energy_kwh": 200.0,
+    "min_energy_kwh": 40.0,
+    "max_energy_kwh": 360.0,
+    "max_charge_kw": 150.0,
+    "max_discharge_kw": 150.0,
+    "charge_efficiency": 0.95,
+    "discharge_efficiency": 0.95,
+    "self_discharge_kwh_per_hour": 0.0,
+    "degradation_cost_cny_per_kwh_throughput": 0.128
+  },
+  "required_terminal_energy_kwh": 200.0,
+  "grid": {
+    "import_headroom_kw": 150.0,
+    "export_limit_kw": 0.0,
+    "allow_grid_charging": true,
+    "allow_grid_export": false
+  },
+  "tariff": {
+    "region": "guangdong_reference_unverified",
+    "version": "jiujiang_notebook_guangdong_2025_reference_v1",
+    "verified": false,
+    "buy_price_cny_per_kwh_by_hour": [
+      0.1721, 0.1721, 0.1721, 0.1721, 0.1721, 0.1721, 0.1721, 0.1721,
+      0.4530, 0.4530, 0.7701, 0.9626, 0.4530, 0.4530, 0.7701, 0.9626,
+      0.7701, 0.7701, 0.7701, 0.4530, 0.4530, 0.4530, 0.4530, 0.4530
+    ],
+    "sell_price_cny_per_kwh": 0.0
+  },
+  "assumptions": [
+    "公开仓库使用合成的校园聚合负荷曲线，不包含真实表计或地址数据",
+    "光伏曲线由港科广所在地NASA POWER逐小时天气和300 kWp假设容量推算",
+    "300 kWp光伏、150 kW/400 kWh储能均为场景假设，不是已核验铭牌",
+    "参考分时价格沿用九江旧方案，仅用于复现调度动作，不代表港科广实际结算",
+    "允许参考低价时段由电网给储能充电，禁止向电网上网"
+  ],
+  "simulation_only": true,
+  "executable": false
+}

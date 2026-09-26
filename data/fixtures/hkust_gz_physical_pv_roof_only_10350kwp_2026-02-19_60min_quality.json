@@ -1,0 +1,29 @@
+{
+  "status": "warning",
+  "hard_gate_passed": true,
+  "scenario_id": "roof_only_10350kwp",
+  "row_count": 24,
+  "missing_value_count": 0,
+  "negative_power_count": 0,
+  "night_max_power_kw": 0.0,
+  "capacity_limit_ok": true,
+  "capacity_kwp": 10350.6,
+  "daily_pv_energy_kwh": 36139.40130304312,
+  "peak_pv_power_kw": 5407.8699007473115,
+  "capacity_factor_for_study_day": 0.14548029946348973,
+  "array_energy_kwh": {
+    "roof": 36139.40130304312
+  },
+  "checks": {
+    "timestamps_complete_hourly": true,
+    "nonnegative_power": true,
+    "capacity_limit": true,
+    "night_power_zero": true
+  },
+  "warnings": [
+    "组件和阵列方向仍含规划假设，输出不是实测发电量。",
+    "DNI/DHI若未提供则使用Erbs方法由GHI推导。",
+    "未计入遮挡和双面增益，逆变器与损失参数待铭牌核验。",
+    "结果仅用于simulation_only容量情景分析。"
+  ]
+}

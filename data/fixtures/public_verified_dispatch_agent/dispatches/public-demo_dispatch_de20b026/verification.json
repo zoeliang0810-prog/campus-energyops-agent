@@ -1,0 +1,25 @@
+{
+  "schedule_id": "schedule_f358164228e1",
+  "passed": true,
+  "executable": false,
+  "violations": [],
+  "recomputed_metrics": {
+    "pv_energy_kwh": 1018.1392822911001,
+    "pv_curtailed_energy_kwh": 0.0,
+    "load_energy_kwh": 58180.0,
+    "battery_charge_energy_kwh": 332.40997229916894,
+    "battery_discharge_energy_kwh": 300.0,
+    "grid_import_energy_kwh": 57194.27069000807,
+    "grid_export_energy_kwh": 0.0,
+    "electricity_cost_cny": 27347.344460911532,
+    "degradation_cost_cny": 80.94847645429361,
+    "total_cost_cny": 27428.292937365826,
+    "peak_import_kw": 3030.0,
+    "baseline_peak_import_kw": 3030.0,
+    "peak_reduction_kw": 0.0,
+    "pv_self_consumption_ratio": 1.0,
+    "grid_emissions_kgco2e": 0.0,
+    "battery_throughput_kwh": 632.4099722991689
+  },
+  "evidence_id": "verify_7d3fe70eb61d"
+}
